@@ -1,0 +1,73 @@
+﻿@model ProyectoEcommerce.Models.Proveedor
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | DATOS DE PROVEEDOR";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">DATOS DE PROVEEDOR</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal form-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomcontacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomcontacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carcontacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carcontacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-12 text-right">
+    @Html.ActionLink("VER LISTA", "listadoEmpleados")
+</div>

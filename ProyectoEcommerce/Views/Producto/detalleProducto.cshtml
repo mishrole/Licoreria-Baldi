@@ -1,0 +1,89 @@
+﻿@model ProyectoEcommerce.Models.Producto
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | DATOS DE PRODUCTO";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">DATOS DE PRODUCTO</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal form-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.proveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canxunidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canxunidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            S/. @string.Format("{0:#.00}", Convert.ToDecimal(Model.precio))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.existencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.existencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            <img class="img-fluid img__listado" src="@Url.Content(Model.foto)" alt="Foto de Empleado" />
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-12 text-right">
+    @Html.ActionLink("VER LISTA", "listadoProductos")
+</div>

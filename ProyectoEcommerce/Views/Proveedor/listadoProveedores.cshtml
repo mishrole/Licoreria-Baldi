@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Proveedor>
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | LISTA DE PROVEEDORES";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4">LISTADO GENERAL DE PROVEEDORES</h2>
+
+<p class="text-right">
+    @Html.ActionLink("NUEVO PROVEEDOR", "nuevoProveedor", new object { }, new { @class = "btn btn-principal" })
+</p>
+<table class="table mx-auto justify-content-center text-uppercase">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nomcontacto)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.carcontacto)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.pais)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th class="text-center">OPCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.codigo)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.nomcontacto)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.carcontacto)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.direccion)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.pais)
+    </td>
+    <td class="align-middle text-center">
+        @Html.DisplayFor(modelItem => item.telefono)
+    </td>
+    <td class="align-middle text-center">
+        <a href="@Url.Action("modificaProveedor", "Proveedor", new { id=item.codigo})" class="btn-mantenimiento">
+            <i class="far fa-edit"></i>
+        </a>
+        <a href="@Url.Action("detalleProveedor", "Proveedor", new { id=item.codigo})" class="btn-mantenimiento">
+            <i class="far fa-eye"></i>
+        </a>
+        <a href="@Url.Action("eliminaProveedor", "Proveedor", new { id=item.codigo})" class="btn-mantenimiento">
+            <i class="far fa-trash-alt"></i>
+        </a>
+    </td>
+</tr>
+}
+
+</table>
+<hr />

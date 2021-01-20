@@ -1,0 +1,38 @@
+﻿@model ProyectoEcommerce.Models.Producto
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | SELECCIONAR PRODUCTO";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<section id="seleccion">
+    @Html.Partial("_PartialProductoD")
+</section>
+
+<section id="info">
+    <div class="row mx-auto justify-content-center">
+        <div class="col-6">
+            <hr />
+        </div>
+    </div>
+    <div class="row mx-auto justify-content-center pt-3 pb-5">
+        <div class="col-sm-6 col-md-4">
+            <p>
+                <span class="font-weight-bold">ENVÍO GRATUITO* POR COMPRAS MAYORES A S/ 199</span>
+                <br />
+                <span class="envio__distritos">
+                    * DISPONIBLE ÚNICAMENTE EN LIMA METROPOLITANA
+                </span>
+            </p>
+            <br />
+            <p>
+                <span class="font-weight-bold">POLÍTICA DE ENVÍOS</span>
+                <br />
+                <span class="envio__distritos">
+                    AL ORGANIZAR EL TRANSPORTE, ENVÍO, O RECOJO EN TIENDA DE CUALQUIER BEBIDA ALCOHÓLICA, ACCEDE A CONTAR CON UNA IDENTIFICACIÓN VIGENTE PROCEDER CON LA ENTREGA DEL PEDIDO.
+                </span>
+            </p>
+        </div>
+        <iframe class="col-sm-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.775275052931!2d-77.06320808480274!3d-11.990045844113455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105ce53c69e3575%3A0x586e76dff7534a44!2sCibertec!5e0!3m2!1ses!2spe!4v1604905994007!5m2!1ses!2spe" width="600" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+</section>

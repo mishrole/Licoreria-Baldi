@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Empleado>
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | LISTA DE EMPLEADOS";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4">LISTADO GENERAL DE EMPLEADOS</h2>
+
+<p class="text-right">
+    @Html.ActionLink("NUEVO EMPLEADO", "nuevoEmpleado", new object { } , new { @class = "btn btn-principal" })
+</p>
+<table class="table mx-auto justify-content-center text-uppercase">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nacimiento)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.cargo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.contratacion)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th class="text-center">OPCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.nacimiento)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.distrito)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.cargo)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.contratacion)
+        </td>
+        <td class="align-middle text-center">
+            <img class="img-fluid img__listado" src="@Url.Content(item.foto)" alt="Foto de Empleado" />
+        </td>
+        <td class="align-middle text-center">
+            <a href="@Url.Action("modificaEmpleado", "Empleado", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-edit"></i>
+            </a>
+            <a href="@Url.Action("detalleEmpleado", "Empleado", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-eye"></i>
+            </a>
+            <a href="@Url.Action("eliminaEmpleado", "Empleado", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-trash-alt"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
+<hr />

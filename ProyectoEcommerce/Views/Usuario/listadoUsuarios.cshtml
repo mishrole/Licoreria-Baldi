@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Usuario>
+
+@{
+    ViewBag.Title = "listadoUsuarios";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4">LISTADO GENERAL DE USUARIOS</h2>
+
+<div class="container-fluid text-center pt-5 pb-5">
+    @using (Html.BeginForm())
+    {
+    <div class="d-flex justify-content-around">
+        <p class="mt-1">ROL</p>
+        @Html.DropDownList("idrol", (SelectList)ViewBag.roles, "[Seleccione]", new { @class = "form-control col-2" })
+        <p class="mt-1">USUARIO/CORREO</p>
+        <input type="text" value="@ViewBag.cadena" name="cadena" class="form-control col-4" />
+        <input class="btn btn-principal" type="submit" value="CONSULTAR" />
+        @Html.ActionLink("NUEVO USUARIO", "nuevoUsuario", new object { }, new { @class = "btn btn-principal" })
+    </div>
+    }
+</div>
+
+<table class="table mx-auto justify-content-center mb-5  text-uppercase">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>gm
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.usuario)
+        </th>
+        <!--
+    <th class="text-center">
+        @Html.DisplayNameFor(model => model.contraseña)
+    </th>
+        -->
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.dni)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <!--
+    <th class="text-center">
+        @Html.DisplayNameFor(model => model.token)
+    </th>-->
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.rol)
+        </th>
+        <th class="text-center">OPCIONES</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.usuario)
+            </td>
+            <!--
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.contraseña)
+            </td>
+                -->
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <!--
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.token)
+            </td>
+                -->
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.rol)
+            </td>
+            <td class="align-middle text-center">
+                <a href="@Url.Action("modificaUsuario", "Usuario", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-edit"></i>
+                </a>
+                <a href="@Url.Action("detalleUsuario", "Usuario", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-eye"></i>
+                </a>
+                <a href="@Url.Action("eliminaUsuario", "Usuario", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

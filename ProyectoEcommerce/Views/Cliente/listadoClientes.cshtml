@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Cliente>
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | LISTA DE CLIENTES";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4">LISTADO GENERAL DE CLIENTES</h2>
+
+<p class="text-right">
+    @Html.ActionLink("NUEVO CLIENTE", "nuevoCliente", new object { }, new { @class = "btn btn-principal" })
+</p>
+<table class="table mx-auto justify-content-center">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.pais)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th class="text-center">OPCIONES</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.pais)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td class="align-middle text-center">
+                <a href="@Url.Action("modificaCliente", "Cliente", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-edit"></i>
+                </a>
+                <a href="@Url.Action("detalleCliente", "Cliente", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-eye"></i>
+                </a>
+                <a href="@Url.Action("eliminaCliente", "Cliente", new { id=item.codigo})" class="btn-mantenimiento">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

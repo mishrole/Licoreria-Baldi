@@ -1,0 +1,80 @@
+﻿@model ProyectoEcommerce.Models.PedidoO
+
+@{
+    ViewBag.Title = "FinalizarCompra";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">PEDIDO Nº @ViewBag.pedido — @ViewBag.fecha</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <b>DATOS DE CLIENTE</b>
+            <hr />
+        </div>
+        <div class="col-3 text-center text-uppercase">
+            <b>DNI:</b> <br />
+            @ViewBag.dni
+        </div>
+        <div class="col-3 text-center text-uppercase">
+            <b>NOMBRE COMPLETO:</b> <br />
+            @ViewBag.nombre
+        </div>
+        <div class="col-3 text-center text-uppercase">
+            <b>TELÉFONO:</b> <br />
+            @ViewBag.telefono
+        </div>
+        <div class="col-3 text-center text-uppercase">
+            <b>EMAIL:</b> <br />
+            @ViewBag.email
+        </div>
+    </div>
+</div>
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-12">
+            <b>DATOS DE ENTREGA</b>
+            <hr />
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    @Html.LabelFor(model => model.distrito, htmlAttributes: new { @class = "control-label col-sm-12 mt-2 font-weight-bold" })
+                    <div class="col-sm-12">
+                        @Html.DropDownList("distrito", (SelectList)ViewBag.distrito, "[Seleccione]", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-4">
+                    @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-sm-12 mt-2 font-weight-bold" })
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
+                        @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-4">
+                    @Html.LabelFor(model => model.referencia, htmlAttributes: new { @class = "control-label col-sm-12 mt-2 font-weight-bold" })
+                    <div class="col-sm-12">
+                        @Html.EditorFor(model => model.referencia, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
+                        @Html.ValidationMessageFor(model => model.referencia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12 text-center">
+                    <input type="submit" value="PAGAR" class="btn btn-principal" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

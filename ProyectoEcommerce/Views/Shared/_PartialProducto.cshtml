@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Producto>
+
+@foreach (var elemento in Model)
+{
+    <div class="producto col-md-3 col-sm-6">
+        <div class="producto__imagen">
+            <img class="img-fluid" src="@Url.Content(elemento.foto)" alt="Foto de Producto" />
+        </div>
+        <div class="producto__descripcion">
+            <h5>
+                @elemento.categoria @elemento.nombre <br /> @elemento.canxunidad
+            </h5>
+            <p class="producto__precio">
+                S/. @elemento.precio.ToString("0.00")
+            </p>
+        </div>
+        @Html.ActionLink("SELECCIONAR", "seleccionaProducto", new { id = elemento.codigo }, new { @class = "btn btn-principal" })
+    </div>
+}

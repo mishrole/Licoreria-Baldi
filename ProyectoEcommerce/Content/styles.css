@@ -1,0 +1,185 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.bg-dark {
+    background-color: #212121 !important;
+}
+
+.carousel-inner {
+    height: 500px !important;
+}
+
+#promos {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#promo-whisky {
+    background: url(../fotos_promociones/promo_whisky.jpg) center no-repeat;
+    background-size: cover;
+    border-right: 1rem solid white;
+}
+
+.promos-mensaje {
+    position: absolute;
+    color: white;
+    left: 25px;
+}
+
+.mensaje-whisky {
+    top: 150px;
+}
+
+.mensaje-cuadricula-cerveza,
+.mensaje-cuadricula-ron {
+    top: 50px;
+}
+
+.mensaje-cuadricula-vino,
+.mensaje-cuadricula-tequila {
+    bottom: 70px;
+}
+
+span.promos-mensaje--whisky,
+span.promos-mensaje--cerveza,
+span.promos-mensaje--ron {
+    display: block;
+    width: 100px;
+    font-size: 1.5rem;
+}
+
+span.promos-mensaje--vino,
+span.promos-mensaje--tequila {
+    display: block;
+    width: 150px;
+    font-size: 1.5rem;
+}
+
+span.promo-descuento {
+    font-size: 2.5rem;
+}
+
+.btn-promo {
+    font-weight: bold;
+}
+
+.anuncio {
+    background-color: #3B3B3B;
+    /*opacity: 0.7;*/
+}
+
+.anuncio-texto {
+    color: white;
+}
+
+.bici-icon {
+    padding: 0 1rem;
+}
+
+footer {
+    background-color: #212121;
+    padding: 0.5rem 0;
+    color: white;
+}
+
+.btn-mantenimiento {
+    color: #0275d8;
+}
+
+.btn-mantenimiento:hover {
+    color: #3490df;
+}
+
+.btn-principal {
+    color: #fff;
+    background-color: #212121 !important;
+    border-color: #212121 !important;
+}
+
+.btn-secundario {
+    color: #fff;
+    background-color: #212121 !important;
+    border-color: #212121 !important;
+}
+
+.btn-terciario {
+    color: #007bff;
+    text-decoration: none !important;
+    background-color: transparent !important;
+    font-size: 0.8rem;
+}
+
+.btn-principal:hover {
+    color: #212121;
+    background-color: #FFF !important;
+    border-color: #212121 !important;
+}
+
+.btn-secundario:hover {
+    color: #fff;
+    background-color: #212121 !important;
+    border-color: #212121 !important;
+}
+
+.btn-terciario:hover {
+    color: #0791e6 !important;
+    text-decoration: underline !important;
+}
+
+.form-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.container-principal {
+    margin-top: 6rem;
+}
+
+.btn-paginado {
+    padding: 0.5rem 1rem;
+    margin: 0 5px;
+}
+
+#tienda {
+    padding-bottom: 6rem;
+}
+
+#seleccion {
+    padding-top: 3rem;
+}
+
+.producto__precio {
+    color: #3B3B3B;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.descripcion__secundario {
+    font-size: 0.8rem;
+    color: #555555;
+}
+
+.breadcrumb-detalle {
+    color: #888888;
+}
+
+.descripcion__cantidad {
+    padding-bottom: 2rem;
+}
+
+#info {
+    padding-top: 1rem;
+    color: #888888;
+}
+
+.img__listado {
+    width: 60px !important;
+    height: auto !important;
+}
+
+.envio__distritos {
+    font-size: 0.8rem;
+}

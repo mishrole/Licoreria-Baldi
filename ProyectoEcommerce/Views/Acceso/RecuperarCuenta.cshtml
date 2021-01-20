@@ -1,0 +1,45 @@
+﻿@model ProyectoEcommerce.Models.EmailReset
+
+@{
+    ViewBag.Title = "RecuperarCuenta";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">REVISA TU CORREO Y SIGUE LAS INSTRUCCIONES</h2>
+<p class="text-center">TE ENVIAREMOS UN ENLACE A TU CORREO PARA QUE PUEDAS CAMBIAR LA CONTRASEÑA</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form-center">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row mb-3">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-4 mt-1" })
+            <div class="col-sm-8">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-12">
+                <input type="submit" value="CAMBIAR MI CONTRASEÑA" class="btn btn-principal" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    if ('@ViewBag.mensaje' != "") {
+        swal('@ViewBag.mensaje', "Presione el botón para cerrar", '@ViewBag.tipo')
+    }
+    // Limpia la caja de email luego de cerrar el modal de confirmación
+    var btnCerrar = document.getElementsByClassName('confirm')[0];
+    var inputEmail = document.getElementById('email');
+    btnCerrar.addEventListener("click", function () {
+        inputEmail.value = " ";
+    });
+</script>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Item>
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | REVISAR PRODUCTOS";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-4">REVISIÓN DEL PEDIDO</h2>
+
+<div class="text-right">
+    @Html.ActionLink("SEGUIR COMPRANDO", "carritoCompras", new object { }, new { @class = "btn btn-principal mb-4" })
+</div>
+
+
+
+<table class="table mx-auto justify-content-center">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.subtotal)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th class="text-center"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td class="align-middle text-center">
+                S/. @string.Format("{0:#.00}", Convert.ToDecimal(item.precio))
+            </td>
+            <td class="align-middle text-center">
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td class="align-middle text-center">
+                S/. @string.Format("{0:#.00}", Convert.ToDecimal(item.subtotal))
+            </td>
+            <td class="align-middle text-center">
+                <img class="img-fluid img__listado" src="@Url.Content(item.foto)" alt="Foto de Producto" />
+            </td>
+            <td class="align-middle text-center">
+                @Html.ActionLink("ELIMINAR", "eliminaProductoCarrito", new { id = item.codigo }, new { @class = "btn btn-principal" })
+            </td>
+        </tr>
+    }
+</table>
+<hr />
+<section id="totales" class="d-flex justify-content-end">
+    <p>TOTAL A PAGAR S/. @string.Format("{0:#.00}", Convert.ToDecimal(@ViewBag.total))</p>
+</section>
+
+<div class="text-right">
+    @Html.ActionLink("CONFIRMAR COMPRA", "FinalizarCompra", new object { }, new { @class = "btn btn-principal mb-4" })
+</div>

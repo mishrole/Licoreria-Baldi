@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ProyectoEcommerce.Models.Producto>
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | LISTADO DE PRODUCTOS";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4">LISTADO GENERAL DE PRODUCTOS</h2>
+
+<p class="text-right">
+    @Html.ActionLink("NUEVO PRODUCTO", "nuevoProducto", new object { }, new { @class = "btn btn-principal"})
+</p>
+<table class="table mx-auto justify-content-center text-uppercase">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.proveedor)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.categoria)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.canxunidad)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.existencia)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.pedido)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
+        <th class="text-center">OPCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.proveedor)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.categoria)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.canxunidad)
+        </td>
+        <td class="align-middle text-center">
+            S/. @string.Format("{0:#.00}", Convert.ToDecimal(item.precio))
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.existencia)
+        </td>
+        <td class="align-middle text-center">
+            @Html.DisplayFor(modelItem => item.pedido)
+        </td>
+        <td class="align-middle text-center">
+            <img class="img-fluid img__listado" src="@Url.Content(item.foto)" alt="Foto de Producto" />
+        </td>
+        <td  class="align-middle text-center">
+            <a href="@Url.Action("modificaProducto", "Producto", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-edit"></i>
+            </a>
+            <a href="@Url.Action("detalleProducto", "Producto", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-eye"></i>
+            </a>
+            <a href="@Url.Action("eliminaProducto", "Producto", new { id=item.codigo})" class="btn-mantenimiento">
+                <i class="far fa-trash-alt"></i>
+            </a>
+        </td>
+    </tr>
+
+}
+
+</table>
+<hr />

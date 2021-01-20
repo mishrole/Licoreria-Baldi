@@ -1,0 +1,46 @@
+﻿@model ProyectoEcommerce.Models.ResetPass
+
+@{
+    ViewBag.Title = "Reset";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h3 class="text-center pt-4 mb-3">ESTÁS A PUNTO DE CAMBIAR TU CONTRASEÑA</h3>
+<p class="text-center">AL TERMINAR, NECESITARÁS INICIAR SESIÓN CON TU NUEVA CONTRASEÑA</p>
+
+<div class="row">
+    <form action="@Url.Content("~/Acceso/Reset")" method="post" class="form-horizontal form-center text-center col-12 col-md-4">
+        <hr />
+        <div class="row mb-3">
+            <div class="col-12">
+                @Html.HiddenFor(model => model.token, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="row mb-3">
+            @Html.LabelFor(model => model.contraseña, htmlAttributes: new { @class = "control-label col-5 mt-2" })
+            <div class="col-7">
+                @Html.PasswordFor(model => model.contraseña, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.contraseña, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            @Html.LabelFor(model => model.contraseñaV, htmlAttributes: new { @class = "control-label col-5 mt-2" })
+            <div class="col-7">
+                @Html.PasswordFor(model => model.contraseñaV, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.contraseñaV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row mb-3 pt-3">
+            <div class="col-sm-12">
+                <input type="submit" value="HACER EL CAMBIO DE CONTRASEÑA" class="btn btn-principal" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    if ('@ViewBag.mensaje' != "") {
+        swal('@ViewBag.mensaje', "Presione el botón para cerrar", '@ViewBag.tipo')
+    }
+</script>

@@ -1,0 +1,89 @@
+﻿@model ProyectoEcommerce.Models.Empleado
+
+@{
+    ViewBag.Title = "LICORERES BALDÍ | DATOS DE EMPLEADO ";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">DATOS DE EMPLEADO</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal form-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contratacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contratacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            <img class="img-fluid img__listado" src="@Url.Content(Model.foto)" alt="Foto de Empleado" />
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-12 text-right">
+    @Html.ActionLink("VER LISTA", "listadoEmpleados")
+</div>

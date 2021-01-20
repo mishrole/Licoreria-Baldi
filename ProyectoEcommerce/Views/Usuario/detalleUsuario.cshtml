@@ -1,0 +1,89 @@
+﻿@model ProyectoEcommerce.Models.Usuario
+
+@{
+    ViewBag.Title = "detalleUsuario";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2 class="text-center pt-4 mb-3">DATOS DE USUARIO</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal form-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.token)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.token)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol)
+        </dd>
+
+    </dl>
+</div>
+<div class="col-md-12 text-right">
+    @Html.ActionLink("VER LISTA", "listadoUsuarios")
+</div>

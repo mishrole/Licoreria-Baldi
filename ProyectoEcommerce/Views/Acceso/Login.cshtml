@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h2 class="text-center pt-5 col-sm-12">INICIA SESIÓN</h2>
+    <form action="@Url.Content("~/Acceso/Login")" method="post" class="form-horizontal form-center text-center col-sm-4">
+        <hr />
+        <div class="col-12 mb-3">
+            <input type="text" value="" name="user" class="form-control text-center" placeholder="Ingrese usuario" />
+        </div>
+        <div class="col-12 mb-3">
+            <input type="password" value="" name="pass" class="form-control text-center" placeholder="Ingrese contraseña" />
+        </div>
+        <div class="col-12 mb-3">
+            <input type="submit" value="INGRESAR" class="btn btn-principal col-12" />
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="text-center col-sm-4 form-center">
+        @Html.ActionLink("¿OLVIDASTE TU CONTRASEÑA?", "RecuperarCuenta", new object { }, new { @class = "btn btn-terciario" })
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="text-center pt-3 col-sm-4 form-center">
+        <p>¿AÚN NO TIENES CUENTA EN BALDÍ?</p>
+        @Html.ActionLink("REGÍSTRATE", "NuevaCuenta", new object { }, new { @class = "btn btn-principal" })
+    </div>
+</div>
+
+<script>
+    if ('@ViewBag.mensaje' != "") {
+        swal('@ViewBag.mensaje', "Presione el botón para cerrar", '@ViewBag.tipo')
+    }
+</script>

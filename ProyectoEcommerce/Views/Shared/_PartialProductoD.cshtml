@@ -1,0 +1,44 @@
+﻿@model ProyectoEcommerce.Models.Producto
+
+<div class="row mx-auto justify-content-center">
+    <div class="descripcion__imagen col-md-4 col-sm-12">
+        <div class="col-sm-12 breadcrumb-detalle">
+            INICIO / LICORERIA / @Html.DisplayFor(model => model.categoria) / @Html.DisplayFor(model => model.nombre)
+        </div>
+        <img class="img-fluid" src="@Url.Content(Model.foto)" alt="Foto de Producto" />
+    </div>
+
+    <div class="descripcion__container col-md-4 col-12 align-self-center">
+        <h5 class="font-weight-bold">
+            @Html.DisplayFor(model => model.categoria) @Html.DisplayFor(model => model.nombre) <br /> @Html.DisplayFor(model => model.canxunidad)
+        </h5>
+        <p class="descripcion__secundario">
+            @Html.DisplayFor(model => model.proveedor) <br />
+            @Html.DisplayFor(model => model.existencia) EN STOCK | @Html.DisplayFor(model => model.pedido) EN PEDIDO
+        </p>
+        <p class="producto__precio">
+            S/. @string.Format("{0:#.00}", Convert.ToDecimal(Model.precio))
+        </p>
+        <div class="descripcion__cantidad">
+            @using (Html.BeginForm("agregaProducto", "Licoreria"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row mx-auto">
+                    <button type="button" class="btn btn-secundario" id="decremento">-</button>
+                    <div class="col-md-2 col-2 pl-1 pr-1">
+                        @Html.Hidden("id", Model.codigo)
+                        @Html.TextBox("cant", "1", new { @class = "form-control text-center" })
+                    </div>
+                    <button type="button" class="btn btn-secundario" id="incremento">+</button>
+                    <button type="submit" class="btn btn-principal ml-2">AGREGAR</button>
+                    <div class="col-md-7 col-7 pb-3 pt-4 pl-0">
+                        <img class="img-fluid" src="~/fotos/metodos_pago.jpg" alt="Métodos de pago" />
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/main")
